@@ -3,8 +3,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 
-\title{作业一: 带皮亚诺余项的泰勒定理问题的\\叙述与证明}
-
+\title{作业一: \\带皮亚诺余项的泰勒定理问题的叙述与证明}
 
 \author{杨钧尹 \\ 信息与计算科学 3200103573}
 
@@ -12,15 +11,91 @@
 
 \maketitle
 
+这是一个来自数学分析领域的问题。
 
-这是一个来自...领域的问题...
+多项式函数是各类函数中最简单的一种，用多项式逼近函数是近似计算和理论分析的一个重要内容。我们在学习导数和微积分概念时已经知道，如果函数$f$在某定义域上的点$x_0$可导，则在该点附近，可以用一次多项式$f(x_0)+f'(x_0)(x-x_0)+o(x-x_0)$逼近函数$f(x)$，其误差为$(x-x_0)$的高阶无穷小量。在实际应用中，我们往往需要用高于二次的多项式逼近给定函数，以实现近似计算的要求。
+
+本问题实质是推导并证明一般函数的带有皮亚诺余项的泰勒展开公式，具有显著的应用价值。
+
 \section{问题描述}
-问题叙述如下: 令...
+
+定理叙述如下: 
+
+对于一般函数$f$，设它在点$x_0$存在直到$n$阶的导数。由这些导数构造一个$n$次多项式
+\begin{equation}\label{eq1}
+	\begin{aligned}
+		T_n(x)=&f(x_0)+\displaystyle\frac{f'(x_0)}{1!}(x-x_0)+\displaystyle\frac{f''(x_0)}{2!}(x-x_0)^2+\cdots \\
+		& +\displaystyle\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n,
+	\end{aligned}
+\end{equation}
+
+称为函数$f$在点$x_0$的泰勒多项式。
+
+若函数$f$在点$x_0$存在直至$n$阶导数，则有$f(x)=T_n(x)+o((x-x_0)^n)$，即
+
+\begin{equation}\label{x}
+	\begin{aligned}
+		f(x)=&f(x_0)+f'(x_0)(x-x_0)+\displaystyle\frac{f''(x_0)}{2!}(x-x_0)^2+\cdots \\
+		& +\displaystyle\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+o((x-x_0)^n).
+	\end{aligned}
+\end{equation}
+
+其中，(\ref{x})式称为$f$在点$x_0$的泰勒公式，$R_n(x)=f(x)-T_n(x)$称为泰勒公式的余项，形如$o((x-x_0)^n)$的余项称为皮亚诺型余项。所以(\ref{x})式又称为带皮亚诺余项的泰勒公式。
 
 \section{证明}
 
+我们首先考察任一$n$次多项式
 
+\begin{equation}\label{eq3}
+	p_n(x)=a_0+a_1(x-x_0)+a_2(x-x_0)^2+\cdots+a_n(x-x_0)^n.
+\end{equation}
 
+逐次求它在点$x_0$的各阶导数，可知
+
+$$a_0=p_n(x_0),a_1=\displaystyle\frac{p'_n(x_0)}{1!},\cdots,a_n=\displaystyle\frac{p_n^{(n)}(x_0)}{n!}.$$
+
+由此可见，多项式$p_n(x)$的各项系数由其在点$x_0$的各阶导数值所唯一确定。
+
+从而，$f(x)$与其泰勒多项式$T_n(x)$在点$x_0$有相同的函数值和相同的直至$n$阶导数值，即
+
+\begin{equation}\label{eq4}
+	f^{(k)}(x_0)=T_n^{(k)}(x_0),k=0,1,2,\cdots,n.
+\end{equation}
+
+下证$f(x)-T_n(x)=o((x-x_0)^n)$，即以(\ref{eq1})式所示的泰勒多项式逼近$f(x)$时，其误差为关于$(x-x_0)^n$的高阶无穷小量。
+
+设
+
+\begin{equation}\label{eq5}
+	R_n(x)=f(x)-T_n(x),Q_n(x)=(x-x_0)^n,
+\end{equation}
+
+现在只要证
+
+\begin{equation}\label{eq6}
+	\lim\limits_{x\rightarrow x_0}\displaystyle\frac{R_n(x)}{Q_n(x)}=0.
+\end{equation}
+
+由关系式(\ref{eq4})可知，
+
+$$R_n(x_0)=R'_n(x_0)=\cdots=R_n^{(n)}(x_0)=0,$$
+
+并易知
+
+$$Q_n(x_0)=Q'_n(x_0)=\cdots=Q_n^{(n-1)}(x_0)=0,Q_n^{(n)}=n!.$$
+
+因为$f^{(n)}$存在，所以在点$x_0$的某邻域$U(x_0)$上$f$存在$n-1$阶导函数。于是，当$x\in \mathring{U}(x_0)$且$x\rightarrow x_0$时，允许接连使用洛必达法则$n-1$次，得到
+
+\begin{equation}\label{eq7}
+	\begin{aligned}
+		\lim\limits_{x\rightarrow x_0}\displaystyle\frac{R_n(x)}{Q_n(x)} & =\lim\limits_{x\rightarrow x_0}\displaystyle\frac{R'_n(x)}{Q'_n(x)}=\cdots=\lim\limits_{x\rightarrow x_0}\displaystyle\frac{R_n^{(n-1)}(x)}{Q_n^{(n-1)}(x)}\\
+		& =\lim\limits_{x\rightarrow x_0}\displaystyle\frac{f^{(n-1)}(x)-f^{(n-1)}(x_0)-f^{(n)}(x_0)(x-x_0)}{n(n-1)\cdots 2(x-x_0)}\\
+		& =\displaystyle\frac{1}{n!}\lim\limits_{x\rightarrow x_0}\left[\displaystyle\frac{f^{(n-1)}(x)-f^{(n-1)}(x_0)}{x-x_0}-f^{(n)}(x_0)\right]\\
+		& =0.
+	\end{aligned}
+\end{equation}
+
+得证.
 
 
 \end{document}
