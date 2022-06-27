@@ -15,6 +15,30 @@ xelatex hw1
 
 以获得pdf成品。
 
+### 编译问题说明
+
+在MacOS/Linux下使用上述命令时，由于设备差异性可能存在下述问题，在此给出说明并提供解决方案。
+
+#### 字体
+
+```shell
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <10.53937> not available
+(Font)              size <10.95> substituted on input line 16.
+```
+
+因为字体通常仅以特定大小提供。此处不影响`xelatex hw1`命令的进行，当然，可以使用lmodern宏包允许任意大小的字体来消除此限制。
+
+#### 公式编号标签
+
+```shell
+LaTeX Warning: There were undefined references.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+```
+
+由于`xelatex`命令自身的机制问题，第一次可能出现如此报错，导致pdf中的编号交叉引用出现'?'。
+
+如老师课上所言，再次执行该命令1～2次即可解决。当然，如果使用TexPad等封装过的环境，可以规避此问题。
+
 ### 任务概要
 
 请用 Latex 完成一篇数学文章, 主题从下面任选一：
