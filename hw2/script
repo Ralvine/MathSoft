@@ -1,0 +1,26 @@
+#!/bin/bash
+#2022-06-28@Ralvine
+
+trap 'rm -f /tmp/my_tmp_file_$$' INT
+echo "生成文件" /tmp/my_tmp_file_$$
+date > /tmp/my_tmp_file_$$
+
+echo "使用组合键CTRL-C以打断进程"
+while [ -f /tmp/my_tmp_file_$$ ]; do
+	echo "文件存在"
+	sleep 1
+done
+echo "文件已不复存在"
+
+trap INT
+echo "生成下列文件" /tmp/my_tmp_file_$$
+date > /tmp/my_tmp_file_$$
+
+echo "使用组合键CTRL-C以打断进程"
+while [ -f /tmp/my_tmp_file_$$ ]; do
+	echo "文件存在"
+	sleep 1
+done
+
+echo "运行中不可能显示此条信息"
+exit 0

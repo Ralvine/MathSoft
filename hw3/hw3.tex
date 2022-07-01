@@ -1,0 +1,63 @@
+\documentclass{ctexart}
+
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\title{一套生产力导向$Linux$环境的\\自我修养与规划}
+
+\author{杨钧尹 \\ 信息与计算科学 3200103573}
+
+\begin{document}
+
+\maketitle
+
+\section{环境概述}
+
+这是一台搭载了M1 Pro芯片的MacBook Pro，我当下的主力设备，也是经过多年设备迭代与魔改后的短暂归宿。
+
+对于我个人而言，一台便携式计算机设备除了需要满足日常浏览网页、字表处理、视听影音等基本需求外，还需要承担一些学业和开发上的任务，譬如课程论文的协作排版、社会实践与小组展示的视频剪辑、社团组织日常的图文设计，以及一些简单的前端开发与个人博客维护、数据挖掘等工作。
+
+尽管在过去漫长的时间里已经逐渐习惯了macOS和背后Apple生态带来的良好联动体验，但自己也一直没有放弃过各式各样的折腾与尝试。在此之前，得益于Hector Martin等人的工作\textsuperscript{\cite{ref1}}，我成功在这台Apple Silicon的设备上运行了Asahi Linux，但由于双系统带来的不便，没有长期使用下去；去年的数据结构与算法课程上，由于彼时ARM版本的Ubuntu存在缺失许多包的问题，暂时使用了在该架构上较为完善的Debian作为替代。
+
+如今，借着数学软件课程的契机，又恰逢ARM64版本Ubuntu的逐步完善，我已经在Parallel Desktop虚拟机在本台设备上部署了基于ARM架构的64位Ubuntu 20.04.2系统，并计划将大部分开发工作迁移至此。
+
+\section{个性配置}
+
+gcc/gdb等基本环境的部署在此不再赘述。这里简要推荐自己安装的一些软件并介绍所作的个性化配置。
+\begin{itemize}
+	\item Typora.这是我最喜爱的Markdown写作工具，它承担了我日常文字写作的大部分工作，且在官网和GitHub上有丰富的自定义主题。
+	\item Jetbrain系列的IDE，目前仅部署了PyCharm.其好用程度无需赘言。
+	\item VsCode.因为可以直接使用GitHub集成，偶尔写Ruby时很有用。
+	\item Sublime Text.轻量级的编辑器，拥有许多有趣的扩展，用于替代Emacs来写C/C++作业和相关项目的代码。
+	\item XDM.下载器，IDM在Linux上的替代。
+	\item VLC.视频播放器。对各类视频编码支持良好。
+	\item Spotify.音乐软件。
+	\item Chrome.Firefox的替代，为了实现Google账户跨设备的同步。
+	\item CopyQ.剪贴板工具，类似于macOS上的iShot。
+	\item Gnome插件\textsuperscript{\cite{ref2}}，例如Plank Dock.对菜单栏、任务栏和终端进行了简单的美化。
+\end{itemize}
+
+\section{使用规划}
+
+在接下来半年内，我计划将大多数开发工作迁移至Ubuntu上，包括：
+
+\begin{itemize}
+	\item 数值分析课程中的工作。
+	\item 后续数模比赛中可能需要使用的Python开发工作，主要是一些算法的实现。
+	\item 个人博客的日常维护。
+	\item 课程论文的撰写及其他用到Markdown写作的场景。
+\end{itemize}
+
+由于虚拟机的限制，加之TensorFlow和PyTorch在今年初已经基本适配了M1芯片，因此暂时不会考虑将之后需要进行的GAN的训练工作置于此。
+
+这些需求大部分可以得到满足，例如个人博客的日常维护上，我使用的Hexo和Mkdocs都提供了对于Ubuntu的支持。然而，虚拟机在性能和续航上的天然劣势意味着我仍旧需要做出进一步的调整：
+
+在Asahi Linux支持M1芯片的GPU加速后，我会毫不犹豫地重新回归于此，实现macOS和Linux的双系统。由此，我可以将Blender等应用逐步迁移过去，Anaconda和Docker环境也将由macOS迁移至Linux中，将后者作为纯粹的、完整的生产力工具。
+
+当然，从自己已经习惯许久的工作环境中迁移出来并非一件易事。为了适应好Linux工作环境，特别是保证的代码、文献和工作结果的稳定和安全，我会采取以下措施：继续使用DropBox和坚果云实现文档的云端备份和同步，在权限管理上进行事无巨细的设置，使用Docker搭载虚拟化开发环境，使用LTS内核且在更新中确保系统处于稳定的版本\textsuperscript{\cite{ref3}}，做好项目的Git管理，及时在GitHub上同步进度。
+
+\bibliographystyle{IEEEtran}
+\bibliography{ref}
+
+\end{document}
