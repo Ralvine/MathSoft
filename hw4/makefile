@@ -1,4 +1,4 @@
-all:
+report:
 	xelatex hw4
 	bibtex hw4
 	xelatex hw4
