@@ -94,11 +94,12 @@ $$(0,f_c(0),f_c(f_c(0)),f_c(f_c(f_c(0)))\cdots)$$
     Do
         z = z^2 + c
         repeats = repeats + 1
-    Loop until abs(z) > EscapeRadius or repeats > MaxRepeats  'EscapeRadius可设置为2。
+    Loop until abs(z) > EscapeRadius or repeats > MaxRepeats 'EscapeRadius可设置为2
     If repeats > MaxRepeats Then
-        Draw c,Black  '如果迭代次数超过MaxRepeats，就将c认定为属于曼德博集合，并设置为黑色。
+        Draw c,Black
+        '如果迭代次数超过MaxRepeats，就将c认定为属于曼德博集合，并设置为黑色
     Else
-        Draw c,color(z,c,repeats)  'color函数用来决定颜色。
+        Draw c,color(z,c,repeats)  'color函数用来决定颜色
     End If
 Next
 \end{verbatim}
