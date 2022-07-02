@@ -1,0 +1,24 @@
+#!/bin/bash
+
+make
+
+./test img1_1.bmp 10 0 0 3
+./test img1_2.bmp 100 0 0 3
+
+./test img2_1.bmp 100 0 0 1.5
+./test img2_2.bmp 100 0 0 0.75
+
+./test img3_1.bmp 100 0.4 0 0.75
+./test img3_2.bmp 100 0.4 0.4 0.75
+
+./test img4_1.bmp 100 0.4 0.4 0.2
+./test img4_2.bmp 1000 0.4 0.4 0.2
+
+mv img1_1.bmp ./images/
+mv img1_2.bmp ./images/
+mv img2_1.bmp ./images/
+mv img2_2.bmp ./images/
+mv img3_1.bmp ./images/
+mv img3_2.bmp ./images/
+mv img4_1.bmp ./images/
+mv img4_2.bmp ./images/
