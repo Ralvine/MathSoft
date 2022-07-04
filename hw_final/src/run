@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# 程序编译
+cd codes
+make
+cd ..
+mv ./codes/julia ./
+mv ./codes/mandelbrot ./
+
+# 参数测试
+./julia img1_1.bmp 100 0 0 3 0 0
+
+# 图像迁移
+mv img1_1.bmp ./images
+
+read -r -p "是否需要清理测试过程产生的临时程序？ [Y/n] " input
+case $input in
+    [yY][eE][sS]|[yY])
+		echo "Yes"
+		rm -f julia
+		rm -f mandelbrot
+		;;
+    [nN][oO]|[nN])
+		echo "No"
+		exit 1
+       	;;
+    *)
+		echo "非法输入！"
+		exit 1
+		;;
+esac

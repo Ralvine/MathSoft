@@ -1,0 +1,32 @@
+\section{算法}
+
+设计算法时，我们一般采用下述收敛判断方法以在有限的运算量中不断逼近 Julia 集。
+
+我们通常假设$|c|<2$，那么经过$k$次迭代后，倘若$|z|>2$，这意味着
+$|z^2|=|z|^2>2\dot|z|$，显然，$|z|$自此随着迭代越来越大，即该点发散。反之，这样的点可以构成
+的模抵消到原来的水平。因此，在迭代运算过程中，一旦某一步结果的模大于 2 了，可以断定它必将发散到无穷。\textsuperscript{\cite{website-julia-mandelbrot}}
+
+但在实际计算中，我们自然无法找出所有的收敛点，但可以采取有限逼近的方法寻找所有模不大于 2 的点集；而由于图像的精度是有限的，最终可以转化为对平面网格上所有点进行收敛判定$\rightarrow$填充的一般算法，伪代码如下：
+
+\begin{verbatim}
+R = escape radius  #choose R > 0 such that R**2 - R >= sqrt(cx**2 + cy**2)
+for each pixel (x, y) on the screen, do:
+    zx = scaled x coordinate of pixel # (scale to be between -R and R)
+       # zx represents the real part of z.
+    zy = scaled y coordinate of pixel # (scale to be between -R and R)
+       # zy represents the imaginary part of z.
+    iteration = 0
+    max_iteration = 1000
+    while (zx * zx + zy * zy < R^2  &&  iteration < max_iteration) 
+    {
+        xtemp = zx * zx - zy * zy
+        zy = 2 * zx * zy  + cy 
+        zx = xtemp + cx
+        iteration = iteration + 1 
+    }
+    if (iteration == max_iteration)
+        return black;
+    else
+        return iteration;
+}
+\end{verbatim}

@@ -1,0 +1,29 @@
+\section{理论}
+
+\subsection{定义}
+
+Julia 集和 Mandelbrot 集使用相同的复二次多项式（式中$c$为复数参数）来定义：
+$$f_c(z)=z^2+c$$
+
+对于固定的复数c，取某一z值（如$z=z_0$），可以得到序列
+$$(z_0,f_c(z_0),f_c(f_c(z_0)),f_c(f_c(f_c(z_0)))\cdots)$$
+这一序列可能发散于无穷大或始终处于某一范围之内并收敛于某一值。我们将使其不扩散的z值的集合称为 Julia 集。\textsuperscript{\cite{enwiki-juliaset}}
+
+而若从$z=0$开始对$f_c(z)$进行$z_{n+1}=z^2_n+c,n=0,1,2,\cdots$迭代，
+可以得到序列
+$$(0,f_c(0),f_c(f_c(0)),f_c(f_c(f_c(0)))\cdots)$$
+此时不同的参数$c$可能使迭代值的模逐渐发散到无限大，也可能收敛在有限的区域内，从而构建出使序列不延伸至无限大的所有复数$c$的集合—— Mandelbrot 集。
+
+由此可见，相较后者，Julia 集是在固定$c$的情形下计算发散的$z$的值，这意味着不同的$c$可以得到迥然不同的图形，且决定图案形状的因素有且仅有$c$。倘若将所有$c$情形的 Julia 集刻画于同一复域平面上，则可以得到 Mandelbrot 集。
+
+\subsection{特性}
+
+\begin{itemize}
+	\item 迭代方式决定了 Julia 集是无限的。\textsuperscript{\cite{book-julia}}
+	\item \textbf{定理} (Fundamental Dichotomy Theorem)\textsuperscript{\cite{website-julia-mandelbrot}}
+
+	一个 Julia 集或者是完全连通的，任意两点间都有一条通路；或者是完全不连通的，整个图形全是一个个孤立的点。
+	\item Julia 集和 Mandelbrot 集都具有自相似性。
+\end{itemize}
+
+根据上述定理，我们可以认为：连通的 Julia 集所对应的参数就是 Mandelbrot 集中的点，Mandelbrot 集则可以视作所有二次 Julia 集的缩略图。他们在相同$c$的情形下存在结构与形态上的紧密联系。\textsuperscript{\cite{website-juliaset}}

@@ -1,0 +1,40 @@
+\documentclass{ctexart}
+
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm,marginparwidth=1.75cm]{geometry}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{abstract}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage[hidelinks]{hyperref}
+
+\setlength\columnsep{1cm}
+\pagenumbering{arabic}
+\CTEXsetup[format={\Large\bfseries}]{section}
+
+
+\title{Julia 集的分析和探索}
+\author{杨钧尹 3200103573 \\ \small{信息与计算科学}}
+\date{}
+\makeatletter
+\let\runtitle\@title
+\renewcommand{\abstractname}{\large 摘要\\}
+
+\pagestyle{fancy}
+\fancyhead[L]{\runtitle}
+\fancyhead[R]{杨钧尹}
+
+\begin{document}
+
+\maketitle
+\input{chapters/abstract.tex}
+\input{chapters/chapter1.tex}
+\input{chapters/chapter2.tex}
+\input{chapters/chapter3.tex}
+\input{chapters/chapter4.tex}
+\input{chapters/chapter5.tex}
+\bibliographystyle{IEEEtran}
+\bibliography{ref}
+
+\end{document}
