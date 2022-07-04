@@ -24,4 +24,5 @@ slide:
 	cd docs && rm slide.out
 	cd docs && rm slide.snm
 	cd docs && rm slide.toc
+	cd docs && rm slide.vrb
 	mv ./docs/slide.pdf ./

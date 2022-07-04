@@ -15,14 +15,14 @@ int main(int argc, char *argv[])
 	
 	Window win(std::atof(argv[2]), std::atof(argv[3]), std::atof(argv[4]), std::atof(argv[5]), std::atof(argv[6]), std::atof(argv[7]));
 	int N = win.get_N();
+	double creal = win.get_creal();
+	double cimag = win.get_cimag();
 	double lpp = win.get_lpp();
 	double dim = win.get_dimension();
 	int width = win.get_width();
 	int height = win.get_height();
 	double ox = win.get_ox() - dim;
 	double oy = win.get_oy() - dim / width * height;
-	double creal = win.get_creal();
-	double cimag = win.get_cimag();
 
 	char *cache = new char[width * height * 3];
 

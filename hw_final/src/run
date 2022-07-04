@@ -1,31 +1,55 @@
 #!/bin/bash
 
-# 程序编译
+echo "正在编译程序..."
 cd codes
 make
 cd ..
 mv ./codes/julia ./
 mv ./codes/mandelbrot ./
+echo "完成!"
 
-# 参数测试
-./julia img1_1.bmp 100 0 0 3 0 0
+read -r -p "选择需要执行的report论文对应的测试步骤? [1/2/3] " input
+case $input in
+    1)
+		echo "Step1.图像分析"
+		./julia ./images/julia2-1.bmp 100 0 0 2 -0.4 0.6
+		./julia ./images/julia2-2.bmp 100 0 0 2 -0.6 -0.4
+		./julia ./images/julia2-3.bmp 100 0 0 2 -0.8 0.16
+		echo "完成!"
+		;;
+    2)
+		echo "Step2.算法检验"
+		./julia ./images/julia3-1.bmp 40 0 0 2 -0.4 0.6
+		./julia ./images/julia3-2.bmp 100 0 0 1 -0.6 -0.4
+		./julia ./images/julia3-3.bmp 100 0.6 0.5 2 -0.8 0.16
+		echo "完成!"
+       	;;
+    3)
+		echo "Step3.特性比较"
+		./julia ./images/julia4-1.bmp 100 0 0 3 0.25 0
+		./mandelbrot ./images/mandel4-3.bmp 100 0.4 0 1
+		echo "完成!"
+		;;
+    *)
+		echo "非法输入!"
+		exit 1
+		;;
+esac
 
-# 图像迁移
-mv img1_1.bmp ./images
-
-read -r -p "是否需要清理测试过程产生的临时程序？ [Y/n] " input
+read -r -p "是否需要清理测试过程产生的临时程序? [Y/n] " input
 case $input in
     [yY][eE][sS]|[yY])
 		echo "Yes"
 		rm -f julia
 		rm -f mandelbrot
+		echo "完成!"
 		;;
     [nN][oO]|[nN])
 		echo "No"
 		exit 1
        	;;
     *)
-		echo "非法输入！"
+		echo "非法输入!"
 		exit 1
 		;;
 esac

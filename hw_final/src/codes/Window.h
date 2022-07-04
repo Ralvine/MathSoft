@@ -12,8 +12,8 @@ private:
 	int height = 1080;
 	int width = 1920;
 	int N = 10;
-	double creal = 0;
-	double cimag = 0;
+	double creal = 0.0;
+	double cimag = 0.0;
 public:
 	Window(){};
 	Window(int _N, double _ox, double _oy, double _d, double _creal, double _cimag)
@@ -32,8 +32,8 @@ public:
 	double get_width() {return width;};
 	double get_ox() {return origin.x;};
 	double get_oy() {return origin.y;};
-	int get_creal() {return creal;};
-	int get_cimag() {return cimag;};
+	double get_creal() {return creal;};
+	double get_cimag() {return cimag;};
 	double get_lpp()
 	{
 		return (dimension * 2.0 / width);
