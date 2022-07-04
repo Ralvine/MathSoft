@@ -1,0 +1,19 @@
+\frametitle{设计算法的步骤和思路}
+\begin{block}{算法伪代码：}
+\begin{lstlisting}
+    R = escape radius  # R > 0 && R^2 - R >= sqrt(cx^2 + cy^2)
+    For Each Pixel(x,y) on the screen:
+        zx = scaled x coordinate of pixel;
+        zy = scaled y coordinate of pixel;
+        iteration = 0;
+        max_iteration = 1000;
+        while (zx * zx + zy * zy < R^2  &&  iteration < max_iteration)
+            xtemp = zx * zx - zy * zy;
+            zy = 2 * zx * zy  + cy;
+            zx = xtemp + cx;
+            iteration = iteration + 1;
+        if (iteration == max_iteration): let the pixel be black;
+        else: return iteration;
+    Finish drawing pixels, output the bmp file.
+\end{lstlisting}
+\end{block}

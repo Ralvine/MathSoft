@@ -17,6 +17,7 @@ report:
 
 slide:
 	cd docs && xelatex slide.tex
+	cd docs && xelatex slide.tex
 	cd docs && rm slide.aux
 	cd docs && rm slide.log
 	cd docs && rm slide.nav

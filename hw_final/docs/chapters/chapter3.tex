@@ -1,32 +1,39 @@
 \section{算法}
 
+\subsection{基本思路}
+
 设计算法时，我们一般采用下述收敛判断方法以在有限的运算量中不断逼近 Julia 集。
 
 我们通常假设$|c|<2$，那么经过$k$次迭代后，倘若$|z|>2$，这意味着
-$|z^2|=|z|^2>2\dot|z|$，显然，$|z|$自此随着迭代越来越大，即该点发散。反之，这样的点可以构成
+$|z^2|=|z|^2>2\cdot|z|$，显然，$|z|$自此随着迭代越来越大，即该点发散。反之，这样的点可以构成
 的模抵消到原来的水平。因此，在迭代运算过程中，一旦某一步结果的模大于 2 了，可以断定它必将发散到无穷。\textsuperscript{\cite{website-julia-mandelbrot}}
 
 但在实际计算中，我们自然无法找出所有的收敛点，但可以采取有限逼近的方法寻找所有模不大于 2 的点集；而由于图像的精度是有限的，最终可以转化为对平面网格上所有点进行收敛判定$\rightarrow$填充的一般算法，伪代码如下：
 
-\begin{verbatim}
-R = escape radius  #choose R > 0 such that R**2 - R >= sqrt(cx**2 + cy**2)
-for each pixel (x, y) on the screen, do:
-    zx = scaled x coordinate of pixel # (scale to be between -R and R)
-       # zx represents the real part of z.
-    zy = scaled y coordinate of pixel # (scale to be between -R and R)
-       # zy represents the imaginary part of z.
-    iteration = 0
-    max_iteration = 1000
-    while (zx * zx + zy * zy < R^2  &&  iteration < max_iteration) 
-    {
-        xtemp = zx * zx - zy * zy
-        zy = 2 * zx * zy  + cy 
-        zx = xtemp + cx
-        iteration = iteration + 1 
-    }
-    if (iteration == max_iteration)
-        return black;
-    else
-        return iteration;
-}
-\end{verbatim}
+\begin{lstlisting}
+R = escape radius  # R > 0 && R^2 - R >= sqrt(cx^2 + cy^2)
+For Each Pixel(x,y) on the screen:
+    zx = scaled x coordinate of pixel;
+    zy = scaled y coordinate of pixel;
+    iteration = 0;
+    max_iteration = 1000;
+    while (zx * zx + zy * zy < R^2  &&  iteration < max_iteration)
+        xtemp = zx * zx - zy * zy;
+        zy = 2 * zx * zy  + cy;
+        zx = xtemp + cx;
+        iteration = iteration + 1;
+    if (iteration == max_iteration): let the pixel be black;
+    else: return iteration;
+Finish drawing pixels, output the bmp file.
+\end{lstlisting}
+
+\subsection{测试算法}
+
+为了更为自由地呈现生成图片的细节以便于测试，算法中还设计了一些可调的参数：
+
+\begin{itemize}
+    \item 迭代次数\verb|N|：控制最大迭代次数，理论上数值越大，图像越精细。
+    \item 图像中心坐标\verb|ox,oy|：控制生成图像在画布上的中心位置。
+    \item 图像半径尺寸\verb|Dimension|：实现缩放效果。
+    \item Julia 迭代参数$c$的实部和虚部：控制该参数，改变生成图像形态。
+\end{itemize}
