@@ -154,23 +154,27 @@ $|z^2|=|z|^2>2\cdot|z|$，显然，$|z|$自此随着迭代越来越大，即该�
 \begin{minipage}{0.33\linewidth}
 \centering
 \includegraphics[width = 3.5cm]{./images/julia2-1.bmp}
-\caption{100,0,0,2,-0.4,0.6}
+\caption*{100,0,0,2,-0.4,0.6}
 \label{fig2-1}
 \end{minipage}\hfill
 \begin{minipage}{0.33\linewidth}
 \centering
 \includegraphics[width = 3.5cm]{./images/julia2-2.bmp}
-\caption{100,0,0,2,-0.6,-0.4}
+\caption*{100,0,0,2,-0.6,-0.4}
 \label{fig2-2}
 \end{minipage}\hfill
 \begin{minipage}{0.33\linewidth}
 \centering
 \includegraphics[width = 3.5cm]{./images/julia2-3.bmp}
-\caption{100,0,0,2,-0.8,0.16}
+\caption*{100,0,0,2,-0.8,0.16}
 \label{fig2-3}
 \end{minipage}
 \end{figure}
-首先输入不同参数$c$，成功生成了不同条件下的 Julia 集图像。对于不同的参数$c$，得到的图像也迥然各异；然而，这些图像基本都具有一定的自相似性，组成图案的要素是富有规则的几何图形。
+输入不同参数$c$，生成不同条件下的 Julia 集图像。
+
+对于不同的参数$c$，得到的图像也迥然各异；
+
+这些图像基本都具有一定的自相似性，组成图案的要素是富有规则的几何图形。
 \end{frame}
 
 % page8
@@ -183,27 +187,27 @@ $|z^2|=|z|^2>2\cdot|z|$，显然，$|z|$自此随着迭代越来越大，即该�
 \begin{minipage}{0.33\linewidth}
 \centering
 \includegraphics[width = 3.5cm]{./images/julia3-1.bmp}
-\caption{40,0,0,2,-0.4,0.6}
+\caption*{40,0,0,2,-0.4,0.6}
 \label{fig3-1}
 \end{minipage}\hfill
 \begin{minipage}{0.33\linewidth}
 \centering
 \includegraphics[width = 3.5cm]{./images/julia3-2.bmp}
-\caption{100,0,0,1,-0.6,-0.4}
+\caption*{100,0,0,1,-0.6,-0.4}
 \label{fig3-2}
 \end{minipage}\hfill
 \begin{minipage}{0.33\linewidth}
 \centering
 \includegraphics[width = 3.5cm]{./images/julia3-3.bmp}
-\caption{100,0.6,0.5,2,-0.8,0.16}
+\caption*{100,0.6,0.5,2,-0.8,0.16}
 \label{fig3-3}
 \end{minipage}
 \end{figure}
-紧接着控制变量，分别改变图\ref{fig2-1}、图\ref{fig2-2}、图\ref{fig2-3}的N,Deminsion与ox,oy，可见算法的各项功能得到了良好的实现。
+分别改变前面三幅图的的N,Deminsion与ox,oy.
 
-随着迭代次数减少，图像精细程度不断下降；随着Deminsion减少，图像相应放大；改变ox与oy的值，图像则相应平移。
+随着迭代次数减少，图像精细程度不断下降；随着Deminsion减少，图像相应放大；
 
-对比还可以发现，图\ref{fig2-1}与前文示例图\ref{fig1-3}的参数$c$相同，得到的结果也基本一致，验证了算法的可行性；同理，$c$相同的图\ref{fig2-1}和图\ref{fig3-1}只存在精细程度的差异，也说明了理想的 Julia 集图形态只与$c$的取值有关；此外，图像在放大后只需要求迭代次数足够大，仍能保证足够的精细度。
+改变ox与oy的值，图像则相应平移。
 \end{frame}
 
 % page9
@@ -213,20 +217,20 @@ $|z^2|=|z|^2>2\cdot|z|$，显然，$|z|$自此随着迭代越来越大，即该�
 
 \begin{figure}[htb]
 \centering
-\begin{minipage}{0.45\linewidth}
+\begin{minipage}{0.4\linewidth}
 \centering
-\includegraphics[width = 3.5cm]{./images/julia4-1.bmp}
+\includegraphics[width = 4cm]{./images/julia4-1.bmp}
 \caption*{Julia,100,0,0,3,0.25,0}
 \label{fig4-1}
 \end{minipage}\hfill
-\begin{minipage}{0.45\linewidth}
+\begin{minipage}{0.4\linewidth}
 \centering
-\includegraphics[width = 3.5cm]{./images/mandel4-3.bmp}
+\includegraphics[width = 4cm]{./images/mandel4-3.bmp}
 \caption*{Mandelbrot,100,0.4,0,1}
 \label{fig4-2}
 \end{minipage}
 \end{figure}
-对比 Julia 集图和 Mandelbrot 集的局部放大图，可以发现二者在结构上的相似性。我们已经知道，所有$c$情形的 Julia 集图全体便是后者。
+对比 Julia 集图和 Mandelbrot 集的局部放大图，可以发现二者在结构上的相似性。
 \end{frame}
 
 \section{结论}
